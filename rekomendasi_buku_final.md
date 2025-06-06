@@ -1,6 +1,7 @@
 # Laporan Proyek Machine Learning - Sistem Rekomendasi Buku
 
 **Nama:** Moch Nazham Ismul Azham
+
 **Dataset:** Book Crossing Dataset
 
 ---
@@ -701,23 +702,23 @@ Pendekatan Collaborative Filtering (CF) merekomendasikan item berdasarkan kesama
 Untuk User 80954:
 |Rank	|ISBN	|Predicted Rating	|Book Title|
 |------|--------|-------|--------------------|
-|1	|015668568X	|7.807	|Old Possum's Book of Practical Cats, IllustratedEdition|
-|2	|0446679593	|7.658	|Suzanne's Diary for Nicholas|
-|3	|0684853515	|7.533	|Hearts In Atlantis : New Fiction|
+|1	|0446679593	|8.136	|Suzanne's Diary for Nicholas|
+|2	|015668568X	|7.744	|Old Possum's Book of Practical Cats, IllustratedEdition|
+|3	|0684853515	|7.284	|Hearts In Atlantis : New Fiction|
 
 Untuk User 15497:
 |Rank	|ISBN	|Predicted Rating	|Book Title|
 |------|----------|------------------|-------|
-|1	|0385335881	|8.252	|Shopaholic Takes Manhattan (Summer Display Opportunity)|
-|2	|0679783571	|8.054	|The Broke Diaries: The Completely True and Hilarious   |  Misadventures of a Good Girl Gone Broke|
-|3	|0440222842	|7.629	|Five Days in Paris|
+|1	|0679783571	|8.145	|The Broke Diaries: The Completely True and Hilarious   |  Misadventures of a Good Girl Gone Broke|
+|2	|0385335881	|7.855	|Shopaholic Takes Manhattan (Summer Display Opportunity)|
+|3	|0440222842	|7.774	|Five Days in Paris|
 
 
 Untuk User 151370:
 | Rank | ISBN | Predicted Rating | Book Title |
 |------|----------|------------------|-------|
-| 1 | 0553375407 | 7.852 |  Ishmael: An Adventure of the Mind and Spirit |
-| 2 | 155874262X | 7.180 | Chicken Soup for the Soul (Chicken Soup for the Soul) |
+| 1 | 0553375407 | 8.246 |  Ishmael: An Adventure of the Mind and Spirit |
+| 2 | 155874262X | 7.970 | Chicken Soup for the Soul (Chicken Soup for the Soul) |
 
 * **Penjelasan**: Rekomendasi ini sangat dipersonalisasi karena didasarkan pada pola rating pengguna dan kemiripannya dengan pengguna lain, bukan hanya konten buku. Ini memungkinkan penemuan buku yang mungkin tidak terduga namun relevan (*serendipity*).
 
@@ -766,10 +767,10 @@ print(f"Mean Absolute Error (MAE): {mae:.4f}")
 ```
 
 #### Hasil Evaluasi Collaborative Filtering
-* **RMSE**: 1.5850
-* **MAE**: 1.2119
+* **RMSE**: 1.5831
+* **MAE**: 1.2115
 
-Nilai RMSE sebesar 1.5850 menunjukkan bahwa, secara rata-rata, prediksi rating oleh model SVD memiliki simpangan sekitar 1.59 poin dari rating aktual pada skala rating 1-10 yang digunakan (setelah filtering rating 0). Demikian pula, nilai MAE sebesar 1.2119 berarti rata-rata kesalahan absolut prediksi model adalah sekitar 1.21 poin.
+Nilai RMSE sebesar 1.5831 menunjukkan bahwa, secara rata-rata, prediksi rating oleh model SVD memiliki simpangan sekitar 1.58 poin dari rating aktual pada skala rating 1-10 yang digunakan (setelah filtering rating 0). Demikian pula, nilai MAE sebesar 1.2115 berarti rata-rata kesalahan absolut prediksi model adalah sekitar 1.21 poin.
 
 Mengingat skala rating adalah 1-10, nilai error ini cukup baik dan mengindikasikan bahwa model SVD memiliki kemampuan yang cukup baik dalam memprediksi preferensi pengguna. Meskipun selalu ada ruang untuk perbaikan, selisih rata-rata 1.2 hingga 1.6 poin pada skala 10 poin menunjukkan bahwa prediksi model tidak terlalu jauh dari rating sebenarnya.
 
@@ -811,8 +812,8 @@ Berdasarkan pemanggilan fungsi `evaluate_content_based` dengan `final_ratings` s
 
 | Metrik                | Collaborative Filtering (SVD) | Content-Based Filtering      |
 | :-------------------- | :---------------------------- | :--------------------------- |
-| **RMSE** | 1.585                        | -                            |
-| **MAE** | 1.2119                        | -                            |
+| **RMSE** | 1.5831                        | -                            |
+| **MAE** | 1.2115                        | -                            |
 | **Average Precision@5** | -                             | 0.0067 (0.67%)               |
 | **Average Recall@5** | -                             | 0.0335 (3.35%)               |
 
@@ -846,7 +847,7 @@ Berdasarkan pemanggilan fungsi `evaluate_content_based` dengan `final_ratings` s
 ### 5. Kesimpulan Evaluasi
 
 **Collaborative Filtering (SVD)**:
-* Menunjukkan performa yang **cukup baik** dengan RMSE 1.5850 dan MAE 1.2119 pada skala rating 1-10. Ini mengindikasikan kemampuan model untuk memprediksi preferensi pengguna dengan tingkat kesalahan yang dapat diterima.
+* Menunjukkan performa yang **cukup baik** dengan RMSE 1.5831 dan MAE 1.2115 pada skala rating 1-10. Ini mengindikasikan kemampuan model untuk memprediksi preferensi pengguna dengan tingkat kesalahan yang dapat diterima.
 * Cocok untuk memberikan rekomendasi yang dipersonalisasi secara akurat kepada pengguna dengan riwayat rating yang memadai.
 * Efektif dalam menangani tugas personalisasi dan prediksi rating.
 
